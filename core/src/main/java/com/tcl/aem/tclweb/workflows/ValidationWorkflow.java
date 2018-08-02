@@ -52,7 +52,6 @@ public class ValidationWorkflow implements WorkflowProcess {
 			throws WorkflowException {
 		WorkflowData workflowData = item.getWorkflowData();
 		String damPath=workflowData.getPayload().toString();
-		LOGGER.info("%%%%DAMPATH%%%"+damPath);
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "getTCLinfo");
 		ResourceResolver resolver = null;
@@ -67,12 +66,8 @@ public class ValidationWorkflow implements WorkflowProcess {
 	        
 			Node root = systemUserSession.getNode(damPath);
 			String assetName=root.getName();
-			//String assetName=root.getParent().getName();
-			LOGGER.info("$$$$assetName$$$$$"+assetName);
-			
 			boolean validAssetName=checkValidation(assetName);
 			systemUserSession.save();
-			LOGGER.info("$$$$validAssetName$$$$$"+validAssetName);
 			if(validAssetName){
 				List<Route> routes = wfsession.getRoutes(item);
 				Route route=routes.get(0);
