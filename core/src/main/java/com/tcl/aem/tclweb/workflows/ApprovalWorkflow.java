@@ -77,8 +77,7 @@ public class ApprovalWorkflow implements WorkflowProcess {
 	            return;
 	        }
 			
-			LOGGER.info("###userEmail####"+userEmail);
-            emailRecipients.add(new InternetAddress(userEmail));
+			emailRecipients.add(new InternetAddress(userEmail));
             HtmlEmail email = new HtmlEmail();
             email.setCharset(CharEncoding.UTF_8);
             email.setTo(emailRecipients);
