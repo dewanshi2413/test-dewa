@@ -48,7 +48,6 @@ public class ApprovalWorkflow implements WorkflowProcess {
 			throws WorkflowException {
 		WorkflowData workflowData = item.getWorkflowData();
 		String damPath=workflowData.getPayload().toString();
-	LOGGER.info("*******DAM PATH *******"+damPath);
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put(ResourceResolverFactory.SUBSERVICE, "getTCLinfo");
 		ResourceResolver resolver = null;
